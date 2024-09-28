@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bik4wmflfqk7u"]
+
+[ext_resource type="PackedScene" uid="uid://dd81g2vvmtvgm" path="res://src/utilities/texture_button_base.tscn" id="1_kikfi"]
+
+[node name="ConnectButton" type="Node2D"]
+
+[node name="ConnectTextureButton" parent="." instance=ExtResource("1_kikfi")]
+scale = Vector2(0.163, 0.129)

@@ -1,0 +1,214 @@
+[gd_scene load_steps=18 format=3 uid="uid://omhyjw0vvl7n"]
+
+[ext_resource type="PackedScene" uid="uid://bh6eliw5jewgq" path="res://src/enemies/enemy.tscn" id="1_6eeho"]
+[ext_resource type="Script" path="res://src/enemies/slime_red.gd" id="2_a8cca"]
+[ext_resource type="Texture2D" uid="uid://k2l2664cscxj" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Red/Death/png/SlimeRed_Death3.png" id="5_eumdh"]
+[ext_resource type="Texture2D" uid="uid://bpcdxscpdtkh5" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Red/Death/png/SlimeRed_Death4.png" id="6_wo1sn"]
+[ext_resource type="Texture2D" uid="uid://b6wg44fm53hc8" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Red/Death/png/SlimeRed_Death5.png" id="7_kur10"]
+[ext_resource type="Texture2D" uid="uid://4us0u1lfpvph" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Red/Death/png/SlimeRed_Death6.png" id="8_1p8yu"]
+[ext_resource type="Texture2D" uid="uid://bkn6j1hn33qrs" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Red/Death/png/SlimeRed_Death7.png" id="9_78063"]
+[ext_resource type="Texture2D" uid="uid://bl0rmuqr86pj3" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Red/Idle/png/SlimeRed_Idle2.png" id="15_ettgx"]
+[ext_resource type="Texture2D" uid="uid://bydodn5py37rw" path="res://resources/textures/Enemy/Slime/SlimeAnimations/Red/Idle/png/SlimeRed_Idle3.png" id="16_pr6ee"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86mr2"]
+size = Vector2(13.1515, 14.5676)
+
+[sub_resource type="Animation" id="Animation_p7uji"]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Death"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.0823529)]
+}
+
+[sub_resource type="Animation" id="Animation_rxbvk"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Hit"]
+}
+
+[sub_resource type="Animation" id="Animation_ha4vk"]
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Walk"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3dcus"]
+_data = {
+"Death": SubResource("Animation_p7uji"),
+"Hit": SubResource("Animation_rxbvk"),
+"Walk": SubResource("Animation_ha4vk")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vyb65"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_wo1sn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kur10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1p8yu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_78063")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_eumdh")
+}],
+"loop": false,
+"name": &"Hit",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_ettgx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_pr6ee")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0n25l"]
+size = Vector2(22.3214, 14.4939)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xl5q"]
+size = Vector2(14.7786, 8.15479)
+
+[node name="SlimeRed" instance=ExtResource("1_6eeho")]
+scale = Vector2(0.90798, 1.0266)
+script = ExtResource("2_a8cca")
+movement_speed = 250.0
+health = 50
+damage = 20
+experience = 5
+coins = 7
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(2.38419e-07, 0)
+scale = Vector2(0.52881, 0.521663)
+shape = SubResource("RectangleShape2D_86mr2")
+disabled = true
+
+[node name="TransformAdjustment" parent="." index="1"]
+position = Vector2(-1.18709, -23.4709)
+scale = Vector2(1.60027, 1.53126)
+
+[node name="AnimationPlayer" parent="TransformAdjustment" index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_3dcus")
+}
+autoplay = "Walk"
+
+[node name="AnimatedSprite2D" parent="TransformAdjustment" index="1"]
+sprite_frames = SubResource("SpriteFrames_vyb65")
+animation = &"Death"
+autoplay = "Walk"
+
+[node name="HurtBox" parent="." index="2"]
+position = Vector2(0, -3.35298)
+scale = Vector2(0.994483, 0.878935)
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(0.376203, 4.19753)
+shape = SubResource("RectangleShape2D_0n25l")
+
+[node name="HitBox" parent="." index="3"]
+position = Vector2(0, -4)
+scale = Vector2(0.867815, 0.910538)
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(2.98023e-08, 4)
+shape = SubResource("RectangleShape2D_5xl5q")
+
+[node name="DamageLabel" parent="." index="4"]
+offset_left = -7.75156
+offset_top = -18.8096
+offset_right = 32.2484
+offset_bottom = 15.1904
+
+[editable path="HurtBox"]
+[editable path="HitBox"]

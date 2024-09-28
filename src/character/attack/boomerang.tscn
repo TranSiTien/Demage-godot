@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8y1c8ewsa2fh"]
+
+[ext_resource type="Script" path="res://src/character/attack/boomerang.gd" id="1_h8fy5"]
+[ext_resource type="Texture2D" uid="uid://b6aahbh3sc8u7" path="res://resources/textures/Items/Weapons/boomerang/boomerang.png" id="2_emuli"]
+[ext_resource type="AudioStream" uid="uid://bbv4gjjp6b0r8" path="res://resources/audio/SoundEffect/attack/boomerang_attack.ogg" id="5_nhvxa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7ipk"]
+size = Vector2(20, 39.8899)
+
+[node name="Boomerang" type="Area2D" groups=["attack"]]
+top_level = true
+scale = Vector2(0.0456337, 0.0477945)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_h8fy5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 0.861455)
+scale = Vector2(1.2, 1.25384)
+texture = ExtResource("2_emuli")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.7, 0.8)
+shape = SubResource("RectangleShape2D_u7ipk")
+
+[node name="SoundPlay" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_nhvxa")
+volume_db = -25.0
+autoplay = true
+max_polyphony = 4
